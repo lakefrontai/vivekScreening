@@ -1,0 +1,22 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    width: calc(100% - 250px);
+    left: 250px;
+    top: 0;
+  }
+  .navbar input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .navbar .icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
