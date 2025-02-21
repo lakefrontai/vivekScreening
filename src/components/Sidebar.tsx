@@ -1,7 +1,15 @@
 "use client";
 import styles from "../styles/sidebar.module.css";
 import { Box, IconButton, Typography } from "@mui/material";
+import { motion } from "framer-motion";
 import Image from "next/image";
+
+const commonAnimateCss = {
+  scale: 1.1,
+  borderRadius: "6px",
+  boxShadow:
+    "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
+};
 
 export default function Sidebar(props: any) {
   const { collapsed, setCollapsed } = props;
@@ -15,12 +23,25 @@ export default function Sidebar(props: any) {
               margin: collapsed ? "10px 0px 20px 10px" : "0px 0px 20px 10px",
             }}
           >
-            <Image
-              src={collapsed ? "/smallLogo.png" : "/logo.png"}
-              alt=""
-              width={collapsed ? 40 : 187}
-              height={collapsed ? 35 : 76}
-            />
+            <motion.div
+              initial={{
+                filter: "brightness(1) drop-shadow(0 0 0px transparent)",
+              }}
+              whileHover={{
+                filter: "brightness(1.5) drop-shadow(0 0 10px #00bfff)",
+              }}
+              animate={{
+                filter: "brightness(1) drop-shadow(0 0 0px transparent)",
+              }} // Reset on hover end
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                src={collapsed ? "/smallLogo.png" : "/logo.png"}
+                alt=""
+                width={collapsed ? 40 : 187}
+                height={collapsed ? 35 : 76}
+              />
+            </motion.div>
           </div>
 
           <ul>
@@ -37,7 +58,10 @@ export default function Sidebar(props: any) {
               </Typography>
             )}
 
-            <li>
+            <motion.li
+              whileHover={commonAnimateCss}
+              transition={{ duration: 0.2 }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -51,8 +75,11 @@ export default function Sidebar(props: any) {
                 />
               </svg>
               {!collapsed && <Typography>Dashboard</Typography>}
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              whileHover={commonAnimateCss}
+              transition={{ duration: 0.2 }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -66,8 +93,11 @@ export default function Sidebar(props: any) {
                 />
               </svg>
               {!collapsed && <Typography>Blog Posts</Typography>}
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              whileHover={commonAnimateCss}
+              transition={{ duration: 0.2 }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
@@ -81,9 +111,12 @@ export default function Sidebar(props: any) {
                 />
               </svg>
               {!collapsed && <Typography>Database</Typography>}
-            </li>
+            </motion.li>
 
-            <li>
+            <motion.li
+              whileHover={commonAnimateCss}
+              transition={{ duration: 0.2 }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -97,8 +130,11 @@ export default function Sidebar(props: any) {
                 />
               </svg>
               {!collapsed && <Typography>Connection</Typography>}
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              whileHover={commonAnimateCss}
+              transition={{ duration: 0.2 }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -113,7 +149,7 @@ export default function Sidebar(props: any) {
               </svg>
               {!collapsed && <Typography>Notifications</Typography>}
               {!collapsed && <span className={styles.badge}>5</span>}
-            </li>
+            </motion.li>
           </ul>
 
           <ul>
@@ -130,7 +166,10 @@ export default function Sidebar(props: any) {
               </Typography>
             )}
 
-            <li>
+            <motion.li
+              whileHover={commonAnimateCss}
+              transition={{ duration: 0.2 }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -144,8 +183,11 @@ export default function Sidebar(props: any) {
                 />
               </svg>
               {!collapsed && <Typography>User management</Typography>}
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              whileHover={commonAnimateCss}
+              transition={{ duration: 0.2 }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -159,8 +201,11 @@ export default function Sidebar(props: any) {
                 />
               </svg>
               {!collapsed && <Typography>Security & Access</Typography>}
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              whileHover={commonAnimateCss}
+              transition={{ duration: 0.2 }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -174,7 +219,7 @@ export default function Sidebar(props: any) {
                 />
               </svg>
               {!collapsed && <Typography>Payments</Typography>}
-            </li>
+            </motion.li>
           </ul>
         </Box>
 
@@ -193,7 +238,10 @@ export default function Sidebar(props: any) {
               </Typography>
             )}
 
-            <li>
+            <motion.li
+              whileHover={commonAnimateCss}
+              transition={{ duration: 0.2 }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -207,8 +255,11 @@ export default function Sidebar(props: any) {
                 />
               </svg>
               {!collapsed && <Typography>Setting</Typography>}
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              whileHover={commonAnimateCss}
+              transition={{ duration: 0.2 }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
@@ -236,7 +287,7 @@ export default function Sidebar(props: any) {
               {!collapsed && (
                 <Typography sx={{ color: "#FF0000" }}>Log out</Typography>
               )}
-            </li>
+            </motion.li>
           </ul>
           <Box sx={{ float: "right" }}>
             <IconButton onClick={() => setCollapsed(!collapsed)}>
