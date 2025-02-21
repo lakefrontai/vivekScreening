@@ -1,30 +1,42 @@
 "use client";
 import styles from "../styles/sidebar.module.css";
-import Link from "next/link";
 import { Box, IconButton, Typography } from "@mui/material";
 import Image from "next/image";
-import { useState } from "react";
 
 export default function Sidebar(props: any) {
-  const [collapsed, setCollapsed] = useState(false);
+  const { collapsed, setCollapsed } = props;
   return (
     <aside className={`${styles.sidebar} ${collapsed ? styles.collapsed : ""}`}>
       <nav>
         <Box>
-          <div className={styles.logo}>
-            <Image src="/logo.png" alt="Logo" width={187} height={76} />
+          <div
+            className={styles.logo}
+            style={{
+              margin: collapsed ? "10px 0px 20px 10px" : "0px 0px 20px 10px",
+            }}
+          >
+            <Image
+              src={collapsed ? "/smallLogo.png" : "/logo.png"}
+              alt=""
+              width={collapsed ? 40 : 187}
+              height={collapsed ? 35 : 76}
+            />
           </div>
+
           <ul>
-            <Typography
-              variant="body1"
-              sx={{
-                color: "rgba(0,0,0,0.5)",
-                fontSize: "14px",
-                margin: "2.5rem 0 1rem 1rem",
-              }}
-            >
-              GENERAL
-            </Typography>
+            {!collapsed && (
+              <Typography
+                variant="body1"
+                sx={{
+                  color: "rgba(0,0,0,0.5)",
+                  fontSize: "14px",
+                  margin: "2.5rem 0 1rem 1rem",
+                }}
+              >
+                GENERAL
+              </Typography>
+            )}
+
             <li>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +50,7 @@ export default function Sidebar(props: any) {
                   fill="#000"
                 />
               </svg>
-              <Typography>Dashboard</Typography>
+              {!collapsed && <Typography>Dashboard</Typography>}
             </li>
             <li>
               <svg
@@ -53,7 +65,7 @@ export default function Sidebar(props: any) {
                   fill="black"
                 />
               </svg>
-              <Typography>Blog Posts</Typography>
+              {!collapsed && <Typography>Blog Posts</Typography>}
             </li>
             <li>
               <svg
@@ -68,7 +80,7 @@ export default function Sidebar(props: any) {
                   fill="black"
                 />
               </svg>
-              <Typography>Database</Typography>
+              {!collapsed && <Typography>Database</Typography>}
             </li>
 
             <li>
@@ -84,7 +96,7 @@ export default function Sidebar(props: any) {
                   fill="black"
                 />
               </svg>
-              <Typography>Connection</Typography>
+              {!collapsed && <Typography>Connection</Typography>}
             </li>
             <li>
               <svg
@@ -99,21 +111,25 @@ export default function Sidebar(props: any) {
                   fill="black"
                 />
               </svg>
-              <Typography>Notifications</Typography>
-              <span className={styles.badge}>5</span>
+              {!collapsed && <Typography>Notifications</Typography>}
+              {!collapsed && <span className={styles.badge}>5</span>}
             </li>
           </ul>
+
           <ul>
-            <Typography
-              variant="body1"
-              sx={{
-                color: "rgba(0,0,0,0.5)",
-                fontSize: "14px",
-                margin: "2.5rem 0 1rem 1rem",
-              }}
-            >
-              SISYPHUS VENTURES
-            </Typography>
+            {!collapsed && (
+              <Typography
+                variant="body1"
+                sx={{
+                  color: "rgba(0,0,0,0.5)",
+                  fontSize: "14px",
+                  margin: "2.5rem 0 1rem 1rem",
+                }}
+              >
+                SISYPHUS VENTURES
+              </Typography>
+            )}
+
             <li>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +143,7 @@ export default function Sidebar(props: any) {
                   fill="black"
                 />
               </svg>
-              <Typography>User management</Typography>
+              {!collapsed && <Typography>User management</Typography>}
             </li>
             <li>
               <svg
@@ -142,7 +158,7 @@ export default function Sidebar(props: any) {
                   fill="black"
                 />
               </svg>
-              <Typography>Security & Access</Typography>
+              {!collapsed && <Typography>Security & Access</Typography>}
             </li>
             <li>
               <svg
@@ -157,22 +173,26 @@ export default function Sidebar(props: any) {
                   fill="black"
                 />
               </svg>
-              <Typography>Payments</Typography>
+              {!collapsed && <Typography>Payments</Typography>}
             </li>
           </ul>
         </Box>
+
         <Box>
           <ul>
-            <Typography
-              variant="body1"
-              sx={{
-                color: "rgba(0,0,0,0.5)",
-                fontSize: "14px",
-                margin: "2.5rem 0 1rem 1rem",
-              }}
-            >
-              OTHERS
-            </Typography>
+            {!collapsed && (
+              <Typography
+                variant="body1"
+                sx={{
+                  color: "rgba(0,0,0,0.5)",
+                  fontSize: "14px",
+                  margin: "2.5rem 0 1rem 1rem",
+                }}
+              >
+                OTHERS
+              </Typography>
+            )}
+
             <li>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -186,7 +206,7 @@ export default function Sidebar(props: any) {
                   fill="black"
                 />
               </svg>
-              <Typography>Setting</Typography>
+              {!collapsed && <Typography>Setting</Typography>}
             </li>
             <li>
               <svg
@@ -213,7 +233,9 @@ export default function Sidebar(props: any) {
                   </clipPath>
                 </defs>
               </svg>
-              <Typography sx={{ color: "#FF0000" }}>Log out</Typography>
+              {!collapsed && (
+                <Typography sx={{ color: "#FF0000" }}>Log out</Typography>
+              )}
             </li>
           </ul>
           <Box sx={{ float: "right" }}>

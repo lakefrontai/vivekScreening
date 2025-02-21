@@ -1,6 +1,5 @@
-import Image from "next/image";
-import ChartPage from "./chart/page";
+import CandlestickChart from "./chart/page";
 
 export default function Home() {
-  return <ChartPage />;
+  return <CandlestickChart />;
 }

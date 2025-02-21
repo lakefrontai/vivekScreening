@@ -5,13 +5,11 @@
     background: white;
     border-bottom: 1px solid #ddd;
     position: fixed;
-    width: calc(100% - 250px);
-    left: 250px;
     top: 0;
+    padding-right: 5vw;
   }
   .navbar input {
-    padding: 8px;
-    border: 1px solid #ccc;
+    padding: 8px 8px 8px 0;
     border-radius: 5px;
   }
   .navbar .icons {
@@ -19,4 +17,5 @@
     align-items: center;
     gap: 15px;
   }
+
   
